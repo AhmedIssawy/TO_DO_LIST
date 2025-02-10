@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import Task from "./Task"; // Import the new Task component
 
 export default function List({ itemPassed }) {
-  const [taskDone, setItemDone] = useState(false);
-  function done() {
-    setItemDone((prev) => !prev);
-  }
   return (
     <div>
       <ul>
         {itemPassed.map((task, i) => (
-          <li key={i}>
-            {task}{" "}
-            <button onClick={done}>{taskDone ? "Done" : "Not Done"}</button>
-          </li>
+          <Task key={i} task={task} />
         ))}
       </ul>
     </div>
